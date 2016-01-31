@@ -2,6 +2,7 @@
 using asp_lesson_3_1.Util;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -152,6 +153,40 @@ namespace asp_lesson_3_1.Controllers
                 return new HttpUnauthorizedResult();
             }
             return View("Buy");
+        }
+
+        //http://metanit.com/sharp/mvc5/3.6.php
+
+        public FileResult GetFile()
+        {
+            // Путь к файлу
+            string file_path = Server.MapPath("~/Files/PDFIcon.pdf");
+            // Тип файла - content-type
+            string file_type = "application/pdf";
+            // Имя файла - необязательно
+            string file_name = "_Дейл Карнеги, Прихоти удачи.pdf";
+            return File(file_path, file_type, file_name);
+        }
+
+        // Отправка массива байтов
+        public FileResult GetBytes()
+        {
+            string path = Server.MapPath("~/Files/PDFIcon.pdf");
+            byte[] mas = System.IO.File.ReadAllBytes(path);
+            string file_type = "application/pdf";
+            string file_name = "_Дейл Карнеги, Прихоти удачи.pdf";
+            return File(mas, file_type, file_name);
+        }
+
+        // Отправка потока
+        public FileResult GetStream()
+        {
+            string path = Server.MapPath("~/Files/PDFIcon.pdf");
+            // Объект Stream
+            FileStream fs = new FileStream(path, FileMode.Open);
+            string file_type = "application/pdf";
+            string file_name = "_Дейл Карнеги, Прихоти удачи.pdf";
+            return File(fs, file_type, file_name);
         }
     }
 }
