@@ -97,5 +97,10 @@ namespace asp_lesson_3_1.Controllers
             ViewBag.Head = "Привет мир!";
             return View("SomeView");
         }
+
+        public RedirectResult SomeMethod3()
+        {
+            return Redirect("/Home/Index");
+        }
     }
 }
