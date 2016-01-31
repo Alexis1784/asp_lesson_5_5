@@ -78,5 +78,12 @@ namespace asp_lesson_3_1.Controllers
             string path = "../Images/visualstudio.png";
             return new ImageResult(path);
         }
+
+        public ContentResult Square2(int a, int h)
+        {
+            int s = a * h / 2;
+            return Content("<h2>Площадь треугольника с основанием " + a +
+                    " и высотой " + h + " равна " + s + "</h2>");
+        }
     }
 }
