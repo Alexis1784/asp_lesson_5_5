@@ -85,5 +85,17 @@ namespace asp_lesson_3_1.Controllers
             return Content("<h2>Площадь треугольника с основанием " + a +
                     " и высотой " + h + " равна " + s + "</h2>");
         }
+
+        public ViewResult SomeMethod()
+        {
+            ViewData["Head"] = "Привет мир!";
+            return View("SomeView");
+        }
+
+        public ViewResult SomeMethod2()
+        {
+            ViewBag.Head = "Привет мир!";
+            return View("SomeView");
+        }
     }
 }
