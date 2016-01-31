@@ -98,6 +98,7 @@ namespace asp_lesson_3_1.Controllers
             return View("SomeView");
         }
 
+        //http://metanit.com/sharp/mvc5/3.5.php
         public RedirectResult SomeMethod3()
         {
             return Redirect("/Home/Index");
@@ -106,6 +107,51 @@ namespace asp_lesson_3_1.Controllers
         public RedirectResult SomeMethod4()
         {
             return RedirectPermanent("/Home/Index");
+        }
+
+        public ActionResult Buy2(int id)
+        {
+            if (id > 3)
+            {
+                return Redirect("/Home/Index");
+            }
+            ViewBag.BookId = id;
+            return View("Buy");
+        }
+        public RedirectToRouteResult SomeMethod5()
+        {
+            return RedirectToRoute(new { controller = "Home", action = "Index" });
+        }
+        public RedirectToRouteResult SomeMethod6()
+        {
+            return RedirectToAction("Square", "Home", new { a = 10, h = 12 });
+        }
+
+        public ActionResult Check(int age)
+        {
+            if (age < 21)
+            {
+                return new HttpStatusCodeResult(404);
+            }
+            return View("Buy");
+        }
+
+        public ActionResult Check2(int age)
+        {
+            if (age < 21)
+            {
+                return HttpNotFound();
+            }
+            return View("Buy");
+        }
+
+        public ActionResult Check3(int age)
+        {
+            if (age < 21)
+            {
+                return new HttpUnauthorizedResult();
+            }
+            return View("Buy");
         }
     }
 }
