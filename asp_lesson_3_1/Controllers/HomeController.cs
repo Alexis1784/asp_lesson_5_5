@@ -73,5 +73,10 @@ namespace asp_lesson_3_1.Controllers
         {
             return new HtmlResult("<h2>Привет мир!</h2>");
         }
+        public ActionResult GetImage()
+        {
+            string path = "../Images/visualstudio.png";
+            return new ImageResult(path);
+        }
     }
 }
