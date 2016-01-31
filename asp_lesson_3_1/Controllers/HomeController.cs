@@ -1,4 +1,5 @@
 ﻿using asp_lesson_3_1.Models;
+using asp_lesson_3_1.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,6 +68,10 @@ namespace asp_lesson_3_1.Controllers
             int h = Int32.Parse(Request.Params["h"]);
             double s = a * h / 2;
             return "<h2>Площадь треугольника с основанием " + a + " и высотой " + h + " равна " + s + "</h2>";
+        }
+        public ActionResult GetHtml()
+        {
+            return new HtmlResult("<h2>Привет мир!</h2>");
         }
     }
 }
