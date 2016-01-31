@@ -28,15 +28,18 @@ namespace asp_lesson_3_1.Controllers
             ViewBag.BookId = id;
             return View();
         }
+        
         [HttpPost]
         public string Buy(Purchase purchase)
         {
-            purchase.Date = DateTime.Now;
-            // добавляем информацию о покупке в базу данных
+            purchase.Date = getToday();
             db.Purchases.Add(purchase);
-            // сохраняем в бд все изменения
             db.SaveChanges();
-            return "Спасибо," + purchase.Person + ", за покупку!";
+            return "Спасибо, " + purchase.Person + ", за покупку!";
+        }
+        private DateTime getToday()
+        {
+            return DateTime.Now;
         }
 
         public ActionResult About()
@@ -51,6 +54,19 @@ namespace asp_lesson_3_1.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        //public string Square(int a = 10, int h = 3)
+        //{
+        //    double s = a * h / 2;
+        //    return "<h2>Площадь треугольника с основанием " + a +
+        //            " и высотой " + h + " равна " + s + "</h2>";
+        //}
+        public string Square()
+        {
+            int a = Int32.Parse(Request.Params["a"]);
+            int h = Int32.Parse(Request.Params["h"]);
+            double s = a * h / 2;
+            return "<h2>Площадь треугольника с основанием " + a + " и высотой " + h + " равна " + s + "</h2>";
         }
     }
 }
