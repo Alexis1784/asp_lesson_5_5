@@ -102,5 +102,10 @@ namespace asp_lesson_3_1.Controllers
         {
             return Redirect("/Home/Index");
         }
+
+        public RedirectResult SomeMethod4()
+        {
+            return RedirectPermanent("/Home/Index");
+        }
     }
 }
