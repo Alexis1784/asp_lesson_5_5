@@ -188,5 +188,58 @@ namespace asp_lesson_3_1.Controllers
             string file_name = "_Дейл Карнеги, Прихоти удачи.pdf";
             return File(fs, file_type, file_name);
         }
+        //http://metanit.com/sharp/mvc5/3.7.php
+        public string Index2()
+        {
+            string browser = HttpContext.Request.Browser.Browser;
+            string user_agent = HttpContext.Request.UserAgent;
+            string url = HttpContext.Request.RawUrl;
+            string ip = HttpContext.Request.UserHostAddress;
+            string referrer = HttpContext.Request.UrlReferrer == null ? "" : HttpContext.Request.UrlReferrer.AbsoluteUri;
+            return "<p>Browser: " + browser + "</p><p>User-Agent: " + user_agent + "</p><p>Url запроса: " + url +
+                "</p><p>Реферер: " + referrer + "</p><p>IP-адрес: " + ip + "</p>";
+        }
+
+        public string ContextData()
+        {
+            HttpContext.Response.Write("<h1>Hello World</h1>");
+
+            string user_agent = HttpContext.Request.UserAgent;
+            string url = HttpContext.Request.RawUrl;
+            string ip = HttpContext.Request.UserHostAddress;
+            string referrer = HttpContext.Request.UrlReferrer == null ? "" : HttpContext.Request.UrlReferrer.AbsoluteUri;
+            return "<p>User-Agent: " + user_agent + "</p><p>Url запроса: " + url +
+                "</p><p>Реферер: " + referrer + "</p><p>IP-адрес: " + ip + "</p>";
+        }
+
+        public void ContextData2()
+        {
+            HttpContext.Response.Write("<h1>Hello World</h1>");
+        }
+
+        public void WorkingWithCookies()
+        {
+            HttpContext.Response.Cookies["id"].Value = "ca-4353w";
+            string id = HttpContext.Request.Cookies["id"].Value;
+            HttpContext.Response.Write("<h1>Value of cookie id is: " + id + "</h1>");
+        }
+
+        public ActionResult Index3()
+        {
+            Session["name"] = "Tom";
+            // получаем из бд все объекты Book
+            IEnumerable<Book> books = db.Books;
+            // передаем все объекты в динамическое свойство Books в ViewBag
+            ViewBag.Books = books;
+            // возвращаем представление
+            return View("Index");
+        }
+
+        public string GetName()
+        {
+            var val = Session["name"];
+            return val.ToString();
+        }
+        
     }
 }
