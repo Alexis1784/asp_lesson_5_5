@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -240,6 +241,13 @@ namespace asp_lesson_3_1.Controllers
             var val = Session["name"];
             return val.ToString();
         }
-        
+
+        // асинхронный метод
+        public async Task<ActionResult> BookList()
+        {
+            IEnumerable<Book> books = await Task.Run(() => db.Books);
+            ViewBag.Books = books;
+            return View("Index");
+        }
     }
 }
