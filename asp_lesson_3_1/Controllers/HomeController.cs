@@ -251,7 +251,9 @@ namespace asp_lesson_3_1.Controllers
         }
 
         //http://metanit.com/sharp/mvc5/4.1.php
-
-
+        public ActionResult BookList2()
+        {
+            return View(db.Books);
+        } 
     }
 }

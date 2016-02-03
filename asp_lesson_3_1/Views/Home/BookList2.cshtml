@@ -1,4 +1,6 @@
-﻿ 
+﻿@using asp_lesson_3_1.Models;
+@model IEnumerable<Book>
+
 <div>
     <h3>Распродажа книг</h3>
     <table>
@@ -8,18 +10,14 @@
             <td><p>Цена</p></td>
             <td></td>
         </tr>
-        @foreach (var b in ViewBag.Books)
-        {
+        @foreach (Book b in Model)
+            {
             <tr>
                 <td><p>@b.Name</p></td>
                 <td><p>@b.Author</p></td>
                 <td><p>@b.Price</p></td>
                 <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
             </tr>
-        }
+            }
     </table>
 </div>
-
-@section Footer {
-    Все права защищены. Syte Corp. 2012.
-}

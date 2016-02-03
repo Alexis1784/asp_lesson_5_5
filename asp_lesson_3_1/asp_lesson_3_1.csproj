@@ -168,6 +168,7 @@
     <Content Include="Views\Home\Buy.cshtml" />
     <Content Include="Views\Home\SomeView.cshtml" />
     <Content Include="Views\Home\SomeView2.cshtml" />
+    <Content Include="Views\Home\BookList2.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
