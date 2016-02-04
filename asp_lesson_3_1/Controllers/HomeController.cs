@@ -251,9 +251,27 @@ namespace asp_lesson_3_1.Controllers
         }
 
         //http://metanit.com/sharp/mvc5/4.1.php
+        //http://metanit.com/sharp/mvc5/4.2.php
         public ActionResult BookList2()
         {
             return View(db.Books);
         } 
+
+        //http://metanit.com/sharp/mvc5/4.4.php
+        public ActionResult Partial()
+        {
+            ViewBag.Message = "Это частичное представление.";
+            return PartialView();
+        }
+        public ActionResult Index4()
+        {
+            // получаем из бд все объекты Book
+            IEnumerable<Book> books = db.Books;
+            // передаем все объекты в динамическое свойство Books в ViewBag
+            ViewBag.Books = books;
+            // возвращаем представление
+            ViewBag.Message = "Это вызов частичного представления из обычного";
+            return View("Index");
+        }
     }
 }
