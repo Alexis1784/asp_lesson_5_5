@@ -1,0 +1,41 @@
+﻿@using asp_lesson_3_1.Models;
+ 
+@helper BookList(IEnumerable<Book> books)
+{
+    <ul>
+        @foreach (Book b in books)
+        {
+            <li>@b.Name</li>
+        }
+    </ul>
+}
+
+
+<h3>Список книг</h3>
+
+<div>
+     @BookList(ViewBag.Books)
+</div>
+ 
+@helper CreateList(string[] all)
+{
+    <ul>
+        @foreach (string s in all)
+        {
+            <li>@s</li>
+        }
+    </ul>
+}
+@{
+    string[] cities = new string[] { "Лондон", "Париж", "Москва" };
+}
+@{
+    string[] countries = new string[] { "Великобритания", "Франция", "Россия" };
+}
+<h3>Города</h3>
+@CreateList(cities)
+<br />
+<h3>Страны</h3>
+@CreateList(countries)
+
+ 

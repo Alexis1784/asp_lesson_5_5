@@ -1,0 +1,15 @@
+﻿@{
+    string[] cities = new string[] { "Лондон", "Париж", "Москва" };
+}
+@{
+    string[] countries = new string[] { "Великобритания", "Франция", "Россия" };
+}
+@using asp_lesson_3_1.Helpers
+
+<h3>Города</h3>
+@Html.CreateList(cities)
+<br />
+<h3>Страны</h3>
+<!-- или можно вызвать так -->
+@ListHelper.CreateList(Html, countries)
+

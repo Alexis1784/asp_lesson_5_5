@@ -126,6 +126,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ListHelper.cs" />
+    <Compile Include="Helpers\ListHelper2.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookContext.cs" />
     <Compile Include="Models\BookDbInitializer.cs" />
@@ -170,6 +172,9 @@
     <Content Include="Views\Home\SomeView2.cshtml" />
     <Content Include="Views\Home\BookList2.cshtml" />
     <Content Include="Views\Home\Partial1.cshtml" />
+    <Content Include="Views\Home\Index5.cshtml" />
+    <Content Include="Views\Home\Index6.cshtml" />
+    <Content Include="Views\Home\Index7.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

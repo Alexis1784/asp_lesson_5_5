@@ -273,5 +273,26 @@ namespace asp_lesson_3_1.Controllers
             ViewBag.Message = "Это вызов частичного представления из обычного";
             return View("Index");
         }
+        
+        //http://metanit.com/sharp/mvc5/4.5.php
+        public ActionResult Index5()
+        {
+            // получаем из бд все объекты Book
+            IEnumerable<Book> books = db.Books;
+            // передаем все объекты в динамическое свойство Books в ViewBag
+            ViewBag.Books = books;
+            // возвращаем представление
+            ViewBag.Message = "Это вызов частичного представления из обычного";
+            return View();
+        }
+
+        public ActionResult Index6()
+        {
+            return View();
+        }
+        public ActionResult Index7()
+        {
+            return View();
+        }
     }
 }
