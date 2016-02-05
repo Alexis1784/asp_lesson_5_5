@@ -392,5 +392,33 @@ namespace asp_lesson_3_1.Controllers
             db.SaveChanges();
             return "Спасибо, " + purchase.Person + ", за покупку!";
         }
+
+        //http://metanit.com/sharp/mvc5/5.2.php
+        BookContext2 db2 = new BookContext2();
+        public ActionResult Index13()
+        {
+             return View(db2.Books);  
+        }
+        [HttpGet]
+        public ActionResult Buy13(int id)
+        {
+            ViewBag.BookId = id;
+            return View();
+        }
+
+        [HttpPost]
+        public string Buy13(Purchase purchase)
+        {
+            purchase.Date = getToday();
+            db2.Purchases.Add(purchase);
+            db2.SaveChanges();
+            return "Спасибо, " + purchase.Person + ", за покупку!";
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            db2.Dispose();
+            base.Dispose(disposing);
+        }
     }
 }

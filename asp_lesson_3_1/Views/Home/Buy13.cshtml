@@ -1,0 +1,16 @@
+﻿@model asp_lesson_3_1.Models.Purchase
+<div>
+    <h3>Форма оформления покупки</h3>
+    @using (Html.BeginForm("Buy13", "Home", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.BookId)
+        @Html.LabelFor(m => m.Person, "Введите свое имя")
+        <br />
+        @Html.TextBoxFor(m => m.Person)
+        <br /><br />
+        @Html.LabelFor(m => m.Address, "Введите адрес")
+        <br />
+        @Html.TextBoxFor(m => m.Address)
+        <p><input type="submit" value="Отправить" /></p>
+    }
+</div>

@@ -15,6 +15,7 @@ namespace asp_lesson_3_1
         protected void Application_Start()
         {
             Database.SetInitializer(new BookDbInitializer());
+            Database.SetInitializer(new BookDbInitializer2());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
