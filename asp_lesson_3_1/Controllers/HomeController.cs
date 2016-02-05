@@ -365,5 +365,32 @@ namespace asp_lesson_3_1.Controllers
             }
             return "Вы выбрали: " + result;
         }
+
+        //http://metanit.com/sharp/mvc5/4.7.php
+        public ActionResult Index12()
+        {
+            // получаем из бд все объекты Book
+            IEnumerable<Book> books = db.Books;
+            // передаем все объекты в динамическое свойство Books в ViewBag
+            ViewBag.Books = books;
+            // возвращаем представление
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Buy12(int id)
+        {
+            ViewBag.BookId = id;
+            return View();
+        }
+
+        [HttpPost]
+        public string Buy12(Purchase purchase)
+        {
+            purchase.Date = getToday();
+            db.Purchases.Add(purchase);
+            db.SaveChanges();
+            return "Спасибо, " + purchase.Person + ", за покупку!";
+        }
     }
 }
