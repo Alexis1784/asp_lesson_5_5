@@ -2,6 +2,7 @@
 using asp_lesson_3_1.Util;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -424,6 +425,29 @@ namespace asp_lesson_3_1.Controllers
         public ActionResult BookView()
         {
              return View(db.Books.Find(1));  
+        }
+
+        [HttpGet]
+        public ActionResult EditBook(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            Book book = db.Books.Find(id);
+            if (book != null)
+            {
+                return View(book);
+            }
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        public ActionResult EditBook(Book book)
+        {
+            db.Entry(book).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
