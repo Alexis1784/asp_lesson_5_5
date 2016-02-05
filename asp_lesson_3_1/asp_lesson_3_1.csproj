@@ -189,6 +189,7 @@
     <Content Include="Views\Home\Index12.cshtml" />
     <Content Include="Views\Home\Index13.cshtml" />
     <Content Include="Views\Home\Buy13.cshtml" />
+    <Content Include="Views\Home\BookView.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

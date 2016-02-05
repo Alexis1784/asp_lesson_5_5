@@ -420,5 +420,10 @@ namespace asp_lesson_3_1.Controllers
             db2.Dispose();
             base.Dispose(disposing);
         }
+        //http://metanit.com/sharp/mvc5/5.3.php
+        public ActionResult BookView()
+        {
+             return View(db.Books.Find(1));  
+        }
     }
 }
