@@ -294,5 +294,76 @@ namespace asp_lesson_3_1.Controllers
         {
             return View();
         }
+
+        //http://metanit.com/sharp/mvc5/4.6.php
+        public ActionResult Index8()
+        {
+            // получаем из бд все объекты Book
+            IEnumerable<Book> books = db.Books;
+            // передаем все объекты в динамическое свойство Books в ViewBag
+            ViewBag.Books = books;
+            // возвращаем представление
+            return View("Index8");
+        }
+
+        [HttpGet]
+        public ActionResult Buy3(int id)
+        {
+            ViewBag.BookId = id;
+            return View();
+        }
+
+        [HttpPost]
+        public string Buy3(Purchase purchase)
+        {
+            purchase.Date = getToday();
+            db.Purchases.Add(purchase);
+            db.SaveChanges();
+            return "Спасибо, " + purchase.Person + ", за покупку!";
+        }
+
+        public ActionResult Index9()
+        {
+            // получаем из бд все объекты Book
+            IEnumerable<Book> books = db.Books;
+            // передаем все объекты в динамическое свойство Books в ViewBag
+            ViewBag.Books = books;
+            // возвращаем представление
+            return View("Index9");
+        }
+
+        [HttpGet]
+        public ActionResult Buy4(int id)
+        {
+            ViewBag.BookId = id;
+            return View();
+        }
+
+        [HttpPost]
+        public string Buy4(Purchase purchase)
+        {
+            purchase.Date = getToday();
+            db.Purchases.Add(purchase);
+            db.SaveChanges();
+            return "Спасибо, " + purchase.Person + ", за покупку!";
+        }
+
+        public ActionResult Index10()
+        {
+            SelectList books = new SelectList(db.Books, "Author", "Name");
+            ViewBag.Books = books;
+            return View("Index10");
+        }
+        [HttpPost]
+        public string Index11(string[] countries)
+        {
+            string result = "";
+            foreach (string c in countries)
+            {
+                result += c;
+                result += ";";
+            }
+            return "Вы выбрали: " + result;
+        }
     }
 }

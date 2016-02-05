@@ -1,0 +1,19 @@
+﻿@using (Html.BeginForm())
+{
+    @Html.Hidden("BookId", @ViewBag.BookId as string)
+    <p>Введите свое имя: </p>
+    @Html.TextBox("Person", "Введите имя")
+    <p>Введите адрес :</p>
+    @Html.TextBox("Address", "Введите адрес")
+    <p><input type="submit" value="Отправить" /></p>
+}
+@Html.TextArea("text", "привет <br /> мир", 5, 50, null)
+
+@Html.RadioButton("color", "red")
+<span>красный</span> <br />
+@Html.RadioButton("color", "blue")
+<span>синий</span> <br />
+@Html.RadioButton("color", "green", true)
+<span>зеленый</span>
+
+@Html.Label("Name")

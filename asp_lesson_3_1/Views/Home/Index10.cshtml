@@ -1,0 +1,7 @@
+﻿@Html.DropDownList("Author", ViewBag.Books as SelectList)
+@using (Html.BeginForm("Index11", "Home", FormMethod.Post))
+{
+    @Html.ListBox("countries",
+            new MultiSelectList(new string[] { "Россия", "США", "Китай", "Индия" }))
+    <p><input type="submit" value="Отправить" /></p>
+}
