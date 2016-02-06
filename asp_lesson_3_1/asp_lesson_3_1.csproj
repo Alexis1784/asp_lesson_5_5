@@ -191,6 +191,8 @@
     <Content Include="Views\Home\Buy13.cshtml" />
     <Content Include="Views\Home\BookView.cshtml" />
     <Content Include="Views\Home\EditBook.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

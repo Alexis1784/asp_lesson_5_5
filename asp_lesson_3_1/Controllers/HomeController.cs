@@ -449,5 +449,42 @@ namespace asp_lesson_3_1.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        //http://metanit.com/sharp/mvc5/5.5.php
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(Book book)
+        {
+            db.Books.Add(book);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            Book b = db.Books.Find(id);
+            if (b == null)
+            {
+                return HttpNotFound();
+            }
+            return View(b);
+        }
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Book b = db.Books.Find(id);
+            if (b == null)
+            {
+                return HttpNotFound();
+            }
+            db.Books.Remove(b);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
