@@ -113,6 +113,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Files\" />
     <Folder Include="Images\" />
   </ItemGroup>
@@ -120,6 +121,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyController.cs" />
     <Compile Include="Global.asax.cs">
@@ -138,10 +140,6 @@
     <Compile Include="Util\ImageResult.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Bookstore2.mdf" />
-    <Content Include="App_Data\Bookstore2_log.ldf">
-      <DependentUpon>Bookstore2.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -193,6 +191,11 @@
     <Content Include="Views\Home\EditBook.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Book\Create.cshtml" />
+    <Content Include="Views\Book\Delete.cshtml" />
+    <Content Include="Views\Book\Details.cshtml" />
+    <Content Include="Views\Book\Edit.cshtml" />
+    <Content Include="Views\Book\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
